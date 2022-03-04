@@ -5,10 +5,11 @@
 
  app.use(express.urlencoded({ extended: true }));
 
+ app.listen(port, () => {
+   console.log(`Listening on port ${port}`);
+ });
+
  app.get('/qa/questions', (req, res) => {
    res.send('questions response here');
  });
 
- app.listen(port, () => {
-   console.log(`Listening on port ${port}`);
- });
