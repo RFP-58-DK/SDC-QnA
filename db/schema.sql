@@ -7,12 +7,12 @@ CREATE DATABASE qna;
 CREATE TABLE questions (
  question_id SERIAL,
  product_id SERIAL,
- question_body VARCHAR(100) NOT NULL,
- question_date VARCHAR(50) NOT NULL,
- asker_name VARCHAR(20) NOT NULL,
- asker_email VARCHAR(30) NOT NULL,
+ question_body VARCHAR(300) NOT NULL,
+ question_date VARCHAR(300) NOT NULL,
+ asker_name VARCHAR(300) NOT NULL,
+ asker_email VARCHAR(300) NOT NULL,
  question_helpfulness INTEGER,
- question_reported BOOLEAN
+ question_reported INTEGER
 );
 
 ALTER TABLE questions ADD CONSTRAINT questions_pkey PRIMARY KEY (question_id);
@@ -20,10 +20,10 @@ ALTER TABLE questions ADD CONSTRAINT questions_pkey PRIMARY KEY (question_id);
 CREATE TABLE answers (
  answer_id SERIAL,
  question_id SERIAL,
- answer_body VARCHAR(100) NOT NULL,
- answer_date VARCHAR(50) NOT NULL,
- answerer_name VARCHAR(20) NOT NULL,
- answerer_email VARCHAR(30) NOT NULL,
+ answer_body VARCHAR(300) NOT NULL,
+ answer_date VARCHAR(300) NOT NULL,
+ answerer_name VARCHAR(300) NOT NULL,
+ answerer_email VARCHAR(300) NOT NULL,
  answer_helpfulness INTEGER,
  answer_reported INTEGER
 );
@@ -33,7 +33,7 @@ ALTER TABLE answers ADD CONSTRAINT answers_pkey PRIMARY KEY (answer_id);
 CREATE TABLE photos (
  photo_id SERIAL,
  answer_id SERIAL,
- photo_url VARCHAR(100) NOT NULL
+ photo_url VARCHAR(300) NOT NULL
 );
 
 ALTER TABLE photos ADD CONSTRAINT photos_pkey PRIMARY KEY (photo_id);
