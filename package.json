@@ -1,0 +1,27 @@
+{
+  "name": "sdc-qna",
+  "version": "1.0.0",
+  "description": "QnA API for SDC",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RFP-58-DK/SDC-QnA.git"
+  },
+  "author": "Kenneth Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RFP-58-DK/SDC-QnA/issues"
+  },
+  "homepage": "https://github.com/RFP-58-DK/SDC-QnA#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "express": "^4.17.3",
+    "postgres": "^1.0.2"
+  }
+}
