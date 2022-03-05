@@ -13,5 +13,13 @@
  });
 
  app.get('/qa/questions', (req, res) => {
-   res.send('questions response here');
+   db.query(
+     'SELECT * FROM questions', (err, results) => {
+       if (err) {
+         console.log('error message', err);
+       } else {
+         res.status(200).send(results);
+       }
+     }
+   )
  });
