@@ -1,15 +1,8 @@
- const express = require('express');
- const app = express();
+const pgp = require('pg');
 
- const port = 3000;
-
- app.use(express.urlencoded({ extended: true }));
- app.use(express.json);
-
- app.listen(port, () => {
-   console.log(`Listening on port ${port}`);
- });
-
- app.get('/qa/questions', (req, res) => {
-   res.send('questions response here');
- });
+const cn = {
+  host: 'localhost',
+  port: 3000,
+  database: 'qna',
+  user: 'kenneth',
+};

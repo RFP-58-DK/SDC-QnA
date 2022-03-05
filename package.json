@@ -2,7 +2,7 @@
   "name": "sdc-qna",
   "version": "1.0.0",
   "description": "QnA API for SDC",
-  "main": "server/db/index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "jest",
     "start": "nodemon index.js"
