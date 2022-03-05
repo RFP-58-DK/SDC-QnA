@@ -12,9 +12,15 @@
    console.log(`Listening on port ${port}`);
  });
 
- app.get('/qa/questions', controller.getQuestions);
- app.get('/qa/questions/answers', controller.getAnswers);
- app.get('/qa/questions/photos', controller.getPhotos);
+ app.get('/qa/questions', (req, res) => {
+  controller.getQuestions(req, res);
+ });
+ app.get('/qa/questions/answers', (req, res) => {
+   controller.getAnswers(req, res);
+ });
+ app.get('/qa/questions/photos', (req, res) => {
+  controller.getPhotos(req, res);
+ });
 
 
 //  app.get('/qa/questions', (req, res) => {

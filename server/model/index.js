@@ -1,7 +1,7 @@
 const db = require('../db');
 
-const getQuestions = (callback) => {
-  db.query('SELECT * FROM questions LIMIT 10',  (err, results) => {
+const getQuestions = (params, callback) => {
+  db.query(`SELECT * FROM questions LEFT OUTER JOIN answers ON questions.question_id = answers.question_id WHERE questions.product_id = ${params.product_id} LIMIT ${params.count || 5}`,  (err, results) => {
     if (err) {
       callback(err);
     } else {
@@ -10,7 +10,7 @@ const getQuestions = (callback) => {
   });
 }
 
-const getAnswers = (callback) => {
+const getAnswers = (params, callback) => {
   db.query('SELECT * FROM answers LIMIT 10', (err, results) => {
     if (err) {
       callback(err);
@@ -20,7 +20,7 @@ const getAnswers = (callback) => {
   });
 }
 
-const getPhotos = (callback) => {
+const getPhotos = (params, callback) => {
   db.query('SELECT * FROM photos LIMIT 10', (err, results) => {
     if (err) {
       callback(err);

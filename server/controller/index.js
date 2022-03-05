@@ -2,7 +2,8 @@ const db = require('../db')
 const models = require('../model');
 
 const getQuestions = (req, res) => {
-  models.getQuestions((err, results) => {
+  const params = req.query;
+  models.getQuestions(params, (err, results) => {
     if (err) {
       res.status(500).send();
     } else {
@@ -12,7 +13,8 @@ const getQuestions = (req, res) => {
 }
 
 const getAnswers = (req, res) => {
-  models.getAnswers((err, results) => {
+  const params = req.query;
+  models.getAnswers(params, (err, results) => {
     if (err) {
       res.status(500).send();
     } else {
@@ -22,7 +24,8 @@ const getAnswers = (req, res) => {
 }
 
 const getPhotos = (req, res) => {
-  models.getPhotos((err, results) => {
+  const params = req.query;
+  models.getPhotos(params, (err, results) => {
     if (err) {
       res.status(500).send();
     } else {
