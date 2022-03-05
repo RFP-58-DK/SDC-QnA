@@ -1,10 +1,14 @@
-const pgp = require('pg');
+const { Pool, Client } = require('pg');
+const config = require('../../config.js');
 
-const connection = {
+const pool = new Pool({
   host: 'localhost',
-  port: 3000,
-  database: 'qna',
-  user: 'kenneth',
-};
+  port: 5432,
+  database: config.database,
+  user: config.user,
+  password: config.password
+});
 
-module.exports = connection;
+
+
+module.exports = pool;
