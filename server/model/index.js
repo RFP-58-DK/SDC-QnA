@@ -1,7 +1,9 @@
 const db = require('../db');
 
 const getQuestions = (params, callback) => {
-  db.query(`SELECT * FROM questions LEFT OUTER JOIN answers ON questions.question_id = answers.question_id WHERE questions.product_id = ${params.product_id} LIMIT ${params.count || 5}`,  (err, results) => {
+
+  const queryStr = `SELECT * FROM questions LEFT OUTER JOIN answers ON questions.question_id = answers.question_id WHERE questions.product_id = ${params.product_id} LIMIT ${params.count || 5}`;
+  db.query(queryStr,  (err, results) => {
     if (err) {
       callback(err);
     } else {
@@ -35,3 +37,6 @@ module.exports = {
   getAnswers,
   getPhotos
 }
+
+
+// `SELECT * FROM questions LEFT OUTER JOIN answers ON questions.question_id = answers.question_id WHERE questions.product_id = ${params.product_id} LIMIT ${params.count || 5}`

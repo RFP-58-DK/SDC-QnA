@@ -7,7 +7,11 @@ const getQuestions = (req, res) => {
     if (err) {
       res.status(500).send();
     } else {
-      res.status(200).send(results);
+      const response = {
+        product_id: params.product_id,
+        results: results
+      }
+      res.status(200).send(response);
     }
   });
 }
