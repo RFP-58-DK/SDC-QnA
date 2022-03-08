@@ -41,7 +41,7 @@ const getQuestions = (params, callback) => {
 
   db.query(queryStr,  (err, results) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       callback(err);
     } else {
       callback(null, results.rows);
@@ -73,7 +73,7 @@ const getAnswers = (params, callback) => {
   LIMIT ${params.count || 5}`;
   db.query(queryStr, (err, results) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       callback(err);
     } else {
       callback(null, results.rows);

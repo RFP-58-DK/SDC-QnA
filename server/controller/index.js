@@ -18,7 +18,7 @@ const getQuestions = (req, res) => {
 
 const getAnswers = (req, res) => {
   const params = req.query;
-  console.log(req.params);
+  // console.log(req.params);
   models.getAnswers(params, (err, results) => {
     if (err) {
       res.status(500).send();
