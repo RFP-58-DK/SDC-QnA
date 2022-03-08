@@ -1,9 +1,9 @@
  const express = require('express');
  const app = express();
  const port = 3000;
- const db = require('./server/db');
+ const db = require('./db');
  const axios = require('axios');
- const controller = require('./server/controller');
+ const controller = require('./controller');
 
  app.use(express.urlencoded({ extended: true }));
  app.use(express.json({}));
@@ -18,9 +18,9 @@
  app.get('/qa/questions/answers', (req, res) => {
    controller.getAnswers(req, res);
  });
- app.get('/qa/questions/photos', (req, res) => {
-  controller.getPhotos(req, res);
- });
+//  app.post('/qa/questions,' (req, res) => {
+//    controller.postQuestions(req, res);
+//  })
 
 
 //  app.get('/qa/questions', (req, res) => {

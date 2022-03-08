@@ -81,18 +81,8 @@ const getAnswers = (params, callback) => {
   });
 }
 
-const getPhotos = (params, callback) => {
-  db.query('SELECT * FROM photos LIMIT 10', (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results.rows);
-    }
-  });
-}
 
 module.exports = {
   getQuestions,
-  getAnswers,
-  getPhotos
+  getAnswers
 }

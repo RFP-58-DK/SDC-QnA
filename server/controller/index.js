@@ -18,6 +18,7 @@ const getQuestions = (req, res) => {
 
 const getAnswers = (req, res) => {
   const params = req.query;
+  console.log(req.params);
   models.getAnswers(params, (err, results) => {
     if (err) {
       res.status(500).send();
@@ -33,19 +34,7 @@ const getAnswers = (req, res) => {
   });
 }
 
-const getPhotos = (req, res) => {
-  const params = req.query;
-  models.getPhotos(params, (err, results) => {
-    if (err) {
-      res.status(500).send();
-    } else {
-      res.status(200).send(results);
-    }
-  });
-}
-
 module.exports = {
   getQuestions,
-  getAnswers,
-  getPhotos
+  getAnswers
 }
