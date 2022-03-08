@@ -18,6 +18,9 @@ const getQuestions = (req, res) => {
         for (let keys in response.results[i].answers) {
           let d = new Date(parseInt(response.results[i].answers[keys].date));
           response.results[i].answers[keys].date = d;
+          if (response.results[i].answers[keys].photos === null) {
+            response.results[i].answers[keys].photos = [];
+          }
         }
       }
       res.status(200).send(response);
