@@ -22,7 +22,13 @@ const getAnswers = (req, res) => {
     if (err) {
       res.status(500).send();
     } else {
-      res.status(200).send(results);
+      const response = {
+        question: params.question_id,
+        page: params.page,
+        count: params.count,
+        results: results
+      }
+      res.status(200).send(response);
     }
   });
 }
