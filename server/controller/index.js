@@ -3,13 +3,22 @@ const models = require('../model');
 
 const getQuestions = (req, res) => {
   const params = req.query;
-  models.getQuestions(params, (err, results) => {
+  models.getQuestions(params, (err, questions) => {
     if (err) {
+      console.log(err);
       res.status(500).send();
     } else {
       const response = {
         product_id: params.product_id,
-        results: results
+        results: questions
+      }
+      for (let i = 0; i < response.results.length; i++) {
+        let d = new Date(parseInt(response.results[i].question_date));
+        response.results[i].question_date = d;
+        for (let keys in response.results[i].answers) {
+          let d = new Date(parseInt(response.results[i].answers[keys].date));
+          response.results[i].answers[keys].date = d;
+        }
       }
       res.status(200).send(response);
     }
@@ -19,7 +28,7 @@ const getQuestions = (req, res) => {
 const getAnswers = (req, res) => {
   const params = req.query;
   // console.log(req.params);
-  models.getAnswers(params, (err, results) => {
+  models.getAnswers(params, (err, answers) => {
     if (err) {
       res.status(500).send();
     } else {
@@ -27,7 +36,14 @@ const getAnswers = (req, res) => {
         question: params.question_id,
         page: params.page,
         count: params.count,
-        results: results
+        results: answers
+      }
+      for (let i = 0; i < response.results.length; i++) {
+        let d = new Date(parseInt(response.results[i].date));
+        response.results[i].date = d;
+        if (response.results[i].photos === null) {
+          response.results[i].photos = [];
+        }
       }
       res.status(200).send(response);
     }
