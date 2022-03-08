@@ -7,17 +7,15 @@
 
  app.use(express.urlencoded({ extended: true }));
  app.use(express.json({}));
-
- app.listen(port, () => {
-   console.log(`Listening on port ${port}`);
- });
-
  app.get('/qa/questions', (req, res) => {
   controller.getQuestions(req, res);
  });
  app.get('/qa/questions/answers', (req, res) => {
    controller.getAnswers(req, res);
  });
+
+ module.exports = app;
+
 //  app.post('/qa/questions,' (req, res) => {
 //    controller.postQuestions(req, res);
 //  })
