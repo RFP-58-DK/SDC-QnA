@@ -37,7 +37,7 @@ const getQuestions = (params, callback) => {
   WHERE q.product_id = ${params.product_id}
     AND a.answer_id IS NOT NULL
   GROUP BY q.question_id
-  LIMIT ${params.count || 5}`;
+  LIMIT ${params.count || 5} OFFSET ${params.page * params.count || 0}`;
 
   db.query(queryStr,  (err, results) => {
     if (err) {
@@ -70,7 +70,7 @@ const getAnswers = (params, callback) => {
     ) AS photos
   FROM answers AS a
   WHERE a.question_id = ${params.question_id}
-  LIMIT ${params.count || 5}`;
+  LIMIT ${params.count || 5} OFFSET ${params.page * params.count || 0}`;
   db.query(queryStr, (err, results) => {
     if (err) {
       // console.log(err);

@@ -5,7 +5,7 @@ const getQuestions = (req, res) => {
   const params = req.query;
   models.getQuestions(params, (err, questions) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       res.status(500).send();
     } else {
       const response = {
@@ -37,8 +37,8 @@ const getAnswers = (req, res) => {
     } else {
       const response = {
         question: params.question_id,
-        page: params.page,
-        count: params.count,
+        page: params.page || 0,
+        count: params.count || 5,
         results: answers
       }
       for (let i = 0; i < response.results.length; i++) {
