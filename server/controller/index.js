@@ -15,6 +15,11 @@ const getQuestions = (req, res) => {
       for (let i = 0; i < response.results.length; i++) {
         let d = new Date(parseInt(response.results[i].question_date));
         response.results[i].question_date = d;
+        if (response.results[i].reported === 0) {
+          response.results[i].reported = false;
+        } else {
+          response.results[i].reported = true;
+        }
         for (let keys in response.results[i].answers) {
           let d = new Date(parseInt(response.results[i].answers[keys].date));
           response.results[i].answers[keys].date = d;
