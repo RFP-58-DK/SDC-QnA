@@ -6,7 +6,7 @@ const getQuestions = (req, res) => {
   models.getQuestions(params, (err, questions) => {
     if (err) {
       // console.log(err);
-      res.status(500).send();
+      res.status(500).send(err);
     } else {
       const response = {
         product_id: params.product_id,
