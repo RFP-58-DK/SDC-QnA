@@ -16,19 +16,3 @@
 
  module.exports = app;
 
-//  app.post('/qa/questions,' (req, res) => {
-//    controller.postQuestions(req, res);
-//  })
-
-
-//  app.get('/qa/questions', (req, res) => {
-//    db.query(
-//      'SELECT * FROM questions LIMIT 10', (err, results) => {
-//        if (err) {
-//          console.log('error message', err);
-//        } else {
-//          res.status(200).send(results);
-//        }
-//      }
-//    )
-//  });

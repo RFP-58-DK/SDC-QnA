@@ -41,7 +41,6 @@ const getQuestions = (params, callback) => {
 
   db.query(queryStr,  (err, results) => {
     if (err) {
-      // console.log(err);
       callback(err);
     } else {
       callback(null, results.rows);
@@ -73,7 +72,6 @@ const getAnswers = (params, callback) => {
   LIMIT ${params.count || 5} OFFSET ${params.page * params.count || 0}`;
   db.query(queryStr, (err, results) => {
     if (err) {
-      // console.log(err);
       callback(err);
     } else {
       callback(null, results.rows);

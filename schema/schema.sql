@@ -42,6 +42,6 @@ ALTER TABLE answers ADD CONSTRAINT answers_question_id_fkey FOREIGN KEY (questio
 ALTER TABLE photos ADD CONSTRAINT photos_answer_id_fkey FOREIGN KEY (answer_id) REFERENCES answers(answer_id);
 
 
--- CREATE INDEX product_id_idx ON questions (product_id);
--- CREATE INDEX question_id_idx ON answers (question_id);
--- CREATE INDEX answer_id_idx ON photos (answer_id);
+CREATE INDEX product_id_idx ON questions (product_id);
+CREATE INDEX question_id_idx ON answers (question_id);
+CREATE INDEX answer_id_idx ON photos (answer_id);

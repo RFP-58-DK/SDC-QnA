@@ -5,7 +5,6 @@ const getQuestions = (req, res) => {
   const params = req.query;
   models.getQuestions(params, (err, questions) => {
     if (err) {
-      // console.log(err);
       res.status(500).send(err);
     } else {
       const response = {
@@ -35,7 +34,6 @@ const getQuestions = (req, res) => {
 
 const getAnswers = (req, res) => {
   const params = req.query;
-  // console.log(req.params);
   models.getAnswers(params, (err, answers) => {
     if (err) {
       res.status(500).send();
